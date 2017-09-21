@@ -1,17 +1,41 @@
 import React, { Component } from 'react';
-import { Text,View, Image } from 'react-native';
+import { Text,View, Image,TouchableHighlight } from 'react-native';
 import styles from '../stylesheet';
 
 export default class Header extends Component {
+  constructor(props){
+    super(props);
+    this.state = {
+      menuOverlay: false
+    }
+  }
+  componentDidMount(){
+   
+  }
+  adjustMenu(){
+    this.setState({menuOverlay:!this.state.menuOverlay})
+    this.props.setMenuOverlay()
+  }
   render() {
-    return (
-      <View style={styles.header}>
-        <Text style={styles.logo}>Explore News</Text>
-        <Image 
+    let menu = () => {
+      if(this.state.menuOverlay === false){
+        return(<Image 
         source={require('../assets/menu.png')} 
         style={styles.menu}
-        />
-
+        />)
+      }else{
+        return(<Text style={{fontSize:32,color:'#000',marginLeft:10}}>X</Text>)
+      }
+    }
+    return (
+      <View style={styles.header}>
+        <TouchableHighlight 
+        onPress={() => this.adjustMenu()}
+        style={{flex:1}}
+        >
+        {menu()}
+        </TouchableHighlight>
+        <Text style={styles.logo}>Explore News</Text>
       </View>
     );
   }

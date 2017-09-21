@@ -12,6 +12,7 @@ import Header from './app/components/header';
 import Background from './app/components/background';
 import Newssources from './app/components/newssources';
 import Footer from './app/components/footer';
+import Topics from './app/components/topics';
 
 
 
@@ -23,18 +24,28 @@ export default class exnews extends Component {
     }
     this.setMenuOverlay = this.setMenuOverlay.bind(this);
   }
-  setMenuOverlay(bool){
-    this.setState({menuOverlay:this.state.menuOverlay})
+  setMenuOverlay(){
+    this.setState({menuOverlay:!this.state.menuOverlay})
+    console.log(this.state.menuOverlay,"this.state.menuOverlay");
   }
   render() {
-    return (
-      <View style={styles.container}>
-        <ScrollView>
-        <Header />
-        <Background />
+    menuVisible = () => {
+      if(this.state.menuOverlay === false){
+        return(<View>
+           <Background />
         <Text style={styles.mainText}>Enjoy up to date news from sources like New York Times, Y Combinator, ESPN and more</Text>
         <Newssources />
         <Footer />
+        </View>)
+      }else{
+        return(<Topics />)
+      }
+    }
+    return (
+      <View style={styles.container}>
+        <ScrollView>
+        <Header setMenuOverlay={this.setMenuOverlay}/>
+        {menuVisible()}
         </ScrollView>
       </View>
     );

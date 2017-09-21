@@ -16,14 +16,12 @@ const styles = StyleSheet.create({
   	color: '#410099',
   	fontWeight: "400",
   	position: 'relative',
-  	top: 10,
+    width:200,
+    left:100,
+    bottom: 30,
   	zIndex: 10
   },
   menu: {
-  	flex: 1,
-  	position:'relative',
-  	bottom:30,
-  	left: 10,
   	width: 42,
   	height:42
   },
@@ -46,6 +44,12 @@ const styles = StyleSheet.create({
   	alignItems: 'center',
   	backgroundColor: '#272222',
   	height: 80
+  },
+  topics: {
+    alignItems: 'center'
+  },
+  topic: {
+    color: '#000'
   }
 });
 
