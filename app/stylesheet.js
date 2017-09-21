@@ -46,10 +46,15 @@ const styles = StyleSheet.create({
   	height: 80
   },
   topics: {
-    alignItems: 'center'
+    backgroundColor:'#410099',
+    alignItems: 'center',
+    height:580
   },
   topic: {
-    color: '#000'
+    color: '#FFF',
+    fontSize: 32,
+    margin: 5,
+    marginTop:10
   }
 });
 
