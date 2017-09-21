@@ -1,4 +1,3 @@
-app/apikey.js
 
 # OSX
 #
@@ -53,3 +52,6 @@ buck-out/
 fastlane/report.xml
 fastlane/Preview.html
 fastlane/screenshots
+
+
+apikey.js
