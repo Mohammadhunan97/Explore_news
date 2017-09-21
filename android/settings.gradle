@@ -1,0 +1,3 @@
+rootProject.name = 'exnews'
+
+include ':app'
