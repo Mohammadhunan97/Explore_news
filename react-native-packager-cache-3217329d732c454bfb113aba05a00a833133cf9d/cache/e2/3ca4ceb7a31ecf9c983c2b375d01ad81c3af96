@@ -1,5 +1,5 @@
 Object.defineProperty(exports, "__esModule", {
-  value: true
+	value: true
 });
 
 var _react2 = require('react');
@@ -33,105 +33,120 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
 var _components = {
-  Feed: {
-    displayName: 'Feed'
-  }
+	Feed: {
+		displayName: 'Feed'
+	}
 };
 
 var _node_modulesReactTransformHmrLibIndexJs2 = (0, _index2.default)({
-  filename: '/home/mohammad/exnews/app/components/feed.js',
-  components: _components,
-  locals: [module],
-  imports: [_react3.default]
+	filename: '/home/mohammad/exnews/app/components/feed.js',
+	components: _components,
+	locals: [module],
+	imports: [_react3.default]
 });
 
 function _wrapComponent(id) {
-  return function (Component) {
-    return _node_modulesReactTransformHmrLibIndexJs2(Component, id);
-  };
+	return function (Component) {
+		return _node_modulesReactTransformHmrLibIndexJs2(Component, id);
+	};
 }
 
 var Feed = _wrapComponent('Feed')(function (_Component) {
-  _inherits(Feed, _Component);
+	_inherits(Feed, _Component);
 
-  function Feed(props) {
-    _classCallCheck(this, Feed);
+	function Feed(props) {
+		_classCallCheck(this, Feed);
 
-    var _this = _possibleConstructorReturn(this, (Feed.__proto__ || Object.getPrototypeOf(Feed)).call(this, props));
+		var _this = _possibleConstructorReturn(this, (Feed.__proto__ || Object.getPrototypeOf(Feed)).call(this, props));
 
-    _this.state = {
-      articles: []
-    };
-    if (_this.props.topic == "news") {
-      fetch("https://newsapi.org/v1/articles?source=the-new-york-times&sortBy=top&apiKey=" + _apikey2.default).then(function (res) {
-        res.json().then(function (data) {
-          var articles = data.articles;
-          _this.setState({ articles: articles });
-          console.log(articles);
-        });
-      });
-    }
-    return _this;
-  }
+		_this.state = {
+			articles: []
+		};
+		if (_this.props.topic == "news") {
+			_this.setArticles("https://newsapi.org/v1/articles?source=the-new-york-times&sortBy=top&apiKey=");
+		} else if (_this.props.topic == "tech") {
+			_this.setArticles("https://newsapi.org/v1/articles?source=techcrunch&sortBy=latest&apikey=");
+		} else if (_this.props.topic == "sports") {
+			_this.setArticles("https://newsapi.org/v1/articles?source=bbc-sport&sortBy=top&apiKey=");
+		} else if (_this.props.topic == "entertainment") {
+			_this.setArticles("https://newsapi.org/v1/articles?source=entertainment-weekly&sortBy=top&apiKey=");
+		} else if (_this.props.topic == "finance") {
+			_this.setArticles("https://newsapi.org/v1/articles?source=financial-times&sortBy=top&apiKey=");
+		}
+		return _this;
+	}
 
-  _createClass(Feed, [{
-    key: 'render',
-    value: function render() {
-      var articles = this.state.articles.map(function (article, i) {
-        return _react3.default.createElement(
-          _reactNative.View,
-          { key: i + 'view', __source: {
-              fileName: _jsxFileName,
-              lineNumber: 23
-            }
-          },
-          _react3.default.createElement(
-            _reactNative.Text,
-            { key: i + 'title', style: _stylesheet2.default.title, __source: {
-                fileName: _jsxFileName,
-                lineNumber: 24
-              }
-            },
-            article.title
-          ),
-          _react3.default.createElement(_reactNative.Image, { key: i + 'image', style: _stylesheet2.default.articleImage, source: { uri: article.urlToImage }, __source: {
-              fileName: _jsxFileName,
-              lineNumber: 25
-            }
-          }),
-          _react3.default.createElement(
-            _reactNative.Text,
-            { key: i + 'author', style: _stylesheet2.default.author, __source: {
-                fileName: _jsxFileName,
-                lineNumber: 26
-              }
-            },
-            'Written by ',
-            article.author
-          )
-        );
-      });
-      return _react3.default.createElement(
-        _reactNative.View,
-        { style: { flex: 1 }, __source: {
-            fileName: _jsxFileName,
-            lineNumber: 30
-          }
-        },
-        _react3.default.createElement(
-          _reactNative.ScrollView,
-          { style: { flex: 1 }, __source: {
-              fileName: _jsxFileName,
-              lineNumber: 31
-            }
-          },
-          articles
-        )
-      );
-    }
-  }]);
+	_createClass(Feed, [{
+		key: 'setArticles',
+		value: function setArticles(url) {
+			var _this2 = this;
 
-  return Feed;
+			fetch(url + _apikey2.default).then(function (res) {
+				res.json().then(function (data) {
+					var articles = data.articles;
+					_this2.setState({ articles: articles });
+				});
+			});
+		}
+	}, {
+		key: 'render',
+		value: function render() {
+			var articles = this.state.articles.map(function (article, i) {
+				return _react3.default.createElement(
+					_reactNative.View,
+					{ key: i + 'view', __source: {
+							fileName: _jsxFileName,
+							lineNumber: 33
+						}
+					},
+					_react3.default.createElement(
+						_reactNative.Text,
+						{ key: i + 'title', style: _stylesheet2.default.title, __source: {
+								fileName: _jsxFileName,
+								lineNumber: 34
+							}
+						},
+						article.title
+					),
+					_react3.default.createElement(_reactNative.Image, { key: i + 'image', style: _stylesheet2.default.articleImage, source: { uri: article.urlToImage }, __source: {
+							fileName: _jsxFileName,
+							lineNumber: 35
+						}
+					}),
+					_react3.default.createElement(
+						_reactNative.Text,
+						{ key: i + 'author', style: _stylesheet2.default.author, __source: {
+								fileName: _jsxFileName,
+								lineNumber: 36
+							}
+						},
+						'Written by ',
+						article.author
+					)
+				);
+			});
+
+			return _react3.default.createElement(
+				_reactNative.View,
+				{ style: { flex: 1 }, __source: {
+						fileName: _jsxFileName,
+						lineNumber: 41
+					}
+				},
+				_react3.default.createElement(
+					_reactNative.ScrollView,
+					{ style: { flex: 1 }, __source: {
+							fileName: _jsxFileName,
+							lineNumber: 42
+						}
+					},
+					articles
+				)
+			);
+		}
+	}]);
+
+	return Feed;
 }(_react2.Component));
 
 exports.default = Feed;

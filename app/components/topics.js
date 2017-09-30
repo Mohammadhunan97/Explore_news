@@ -24,12 +24,16 @@ export default class Topics extends Component {
         onPress={()=>this.setTopic('news')}
         style={styles.topic}>News</Text>
         <Text 
+        onPress={()=>this.setTopic('tech')}
         style={styles.topic}>Tech</Text>
         <Text 
+        onPress={()=>this.setTopic('sports')}
         style={styles.topic}>Sports</Text>
         <Text 
+        onPress={()=>this.setTopic('entertainment')}
         style={styles.topic}>Entertainment</Text>
         <Text 
+        onPress={()=>this.setTopic('finance')}
         style={styles.topic}>Finance</Text>
         </View>)
       }else{

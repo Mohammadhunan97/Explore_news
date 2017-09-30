@@ -101,6 +101,9 @@ var Topics = _wrapComponent('Topics')(function (_Component) {
             _react3.default.createElement(
               _reactNative.Text,
               {
+                onPress: function onPress() {
+                  return _this2.setTopic('tech');
+                },
                 style: _stylesheet2.default.topic, __source: {
                   fileName: _jsxFileName,
                   lineNumber: 26
@@ -111,9 +114,12 @@ var Topics = _wrapComponent('Topics')(function (_Component) {
             _react3.default.createElement(
               _reactNative.Text,
               {
+                onPress: function onPress() {
+                  return _this2.setTopic('sports');
+                },
                 style: _stylesheet2.default.topic, __source: {
                   fileName: _jsxFileName,
-                  lineNumber: 28
+                  lineNumber: 29
                 }
               },
               'Sports'
@@ -121,9 +127,12 @@ var Topics = _wrapComponent('Topics')(function (_Component) {
             _react3.default.createElement(
               _reactNative.Text,
               {
+                onPress: function onPress() {
+                  return _this2.setTopic('entertainment');
+                },
                 style: _stylesheet2.default.topic, __source: {
                   fileName: _jsxFileName,
-                  lineNumber: 30
+                  lineNumber: 32
                 }
               },
               'Entertainment'
@@ -131,9 +140,12 @@ var Topics = _wrapComponent('Topics')(function (_Component) {
             _react3.default.createElement(
               _reactNative.Text,
               {
+                onPress: function onPress() {
+                  return _this2.setTopic('finance');
+                },
                 style: _stylesheet2.default.topic, __source: {
                   fileName: _jsxFileName,
-                  lineNumber: 32
+                  lineNumber: 35
                 }
               },
               'Finance'
@@ -142,7 +154,7 @@ var Topics = _wrapComponent('Topics')(function (_Component) {
         } else {
           return _react3.default.createElement(_feed2.default, { topic: _this2.state.topic, __source: {
               fileName: _jsxFileName,
-              lineNumber: 36
+              lineNumber: 40
             }
           });
         }
@@ -152,14 +164,14 @@ var Topics = _wrapComponent('Topics')(function (_Component) {
         {
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 40
+            lineNumber: 44
           }
         },
         _react3.default.createElement(
           _reactNative.View,
           { style: _stylesheet2.default.topics, __source: {
               fileName: _jsxFileName,
-              lineNumber: 41
+              lineNumber: 45
             }
           },
           topics()

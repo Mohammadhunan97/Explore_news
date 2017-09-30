@@ -67,6 +67,9 @@ var Topics = function (_Component) {
             _react2.default.createElement(
               _reactNative.Text,
               {
+                onPress: function onPress() {
+                  return _this2.setTopic('tech');
+                },
                 style: _stylesheet2.default.topic, __source: {
                   fileName: _jsxFileName,
                   lineNumber: 26
@@ -77,9 +80,12 @@ var Topics = function (_Component) {
             _react2.default.createElement(
               _reactNative.Text,
               {
+                onPress: function onPress() {
+                  return _this2.setTopic('sports');
+                },
                 style: _stylesheet2.default.topic, __source: {
                   fileName: _jsxFileName,
-                  lineNumber: 28
+                  lineNumber: 29
                 }
               },
               'Sports'
@@ -89,7 +95,7 @@ var Topics = function (_Component) {
               {
                 style: _stylesheet2.default.topic, __source: {
                   fileName: _jsxFileName,
-                  lineNumber: 30
+                  lineNumber: 32
                 }
               },
               'Entertainment'
@@ -99,7 +105,7 @@ var Topics = function (_Component) {
               {
                 style: _stylesheet2.default.topic, __source: {
                   fileName: _jsxFileName,
-                  lineNumber: 32
+                  lineNumber: 34
                 }
               },
               'Finance'
@@ -108,19 +114,28 @@ var Topics = function (_Component) {
         } else {
           return _react2.default.createElement(_feed2.default, { topic: _this2.state.topic, __source: {
               fileName: _jsxFileName,
-              lineNumber: 36
+              lineNumber: 38
             }
           });
         }
       };
       return _react2.default.createElement(
-        _reactNative.View,
-        { style: _stylesheet2.default.topics, __source: {
+        _reactNative.ScrollView,
+        {
+          __source: {
             fileName: _jsxFileName,
-            lineNumber: 40
+            lineNumber: 42
           }
         },
-        topics()
+        _react2.default.createElement(
+          _reactNative.View,
+          { style: _stylesheet2.default.topics, __source: {
+              fileName: _jsxFileName,
+              lineNumber: 43
+            }
+          },
+          topics()
+        )
       );
     }
   }]);

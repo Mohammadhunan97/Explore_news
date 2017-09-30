@@ -1,5 +1,5 @@
 Object.defineProperty(exports, "__esModule", {
-  value: true
+	value: true
 });
 var _jsxFileName = '/home/mohammad/exnews/app/components/feed.js';
 
@@ -18,85 +18,98 @@ var _apikey = require('../../apikey');
 var _apikey2 = babelHelpers.interopRequireDefault(_apikey);
 
 var Feed = function (_Component) {
-  babelHelpers.inherits(Feed, _Component);
+	babelHelpers.inherits(Feed, _Component);
 
-  function Feed(props) {
-    babelHelpers.classCallCheck(this, Feed);
+	function Feed(props) {
+		babelHelpers.classCallCheck(this, Feed);
 
-    var _this = babelHelpers.possibleConstructorReturn(this, (Feed.__proto__ || Object.getPrototypeOf(Feed)).call(this, props));
+		var _this = babelHelpers.possibleConstructorReturn(this, (Feed.__proto__ || Object.getPrototypeOf(Feed)).call(this, props));
 
-    _this.state = {
-      articles: []
-    };
-    if (_this.props.topic == "news") {
-      fetch("https://newsapi.org/v1/articles?source=the-new-york-times&sortBy=top&apiKey=" + _apikey2.default).then(function (res) {
-        res.json().then(function (data) {
-          var articles = data.articles;
-          _this.setState({ articles: articles });
-          console.log(articles);
-        });
-      });
-    }
-    return _this;
-  }
+		_this.state = {
+			articles: []
+		};
+		if (_this.props.topic == "news") {
+			fetch("https://newsapi.org/v1/articles?source=the-new-york-times&sortBy=top&apiKey=" + _apikey2.default).then(function (res) {
+				return _this.setArticles(res);
+			});
+		} else if (_this.props.topic == "tech") {
+			fetch("https://newsapi.org/v1/articles?source=techcrunch&sortBy=latest&apikey=" + _apikey2.default).then(function (res) {
+				return _this.setArticles(res);
+			});
+		} else if (_this.props.topic == "sports") {
+			_this.setArticles("https://newsapi.org/v1/articles?source=bbc-sport");
+		}
+		return _this;
+	}
 
-  babelHelpers.createClass(Feed, [{
-    key: 'render',
-    value: function render() {
-      var articles = this.state.articles.map(function (article, i) {
-        return _react2.default.createElement(
-          _reactNative.View,
-          { key: i + 'view', __source: {
-              fileName: _jsxFileName,
-              lineNumber: 23
-            }
-          },
-          _react2.default.createElement(
-            _reactNative.Text,
-            { key: i + 'title', style: _stylesheet2.default.title, __source: {
-                fileName: _jsxFileName,
-                lineNumber: 24
-              }
-            },
-            article.title
-          ),
-          _react2.default.createElement(_reactNative.Image, { key: i + 'image', style: _stylesheet2.default.articleImage, source: { uri: article.urlToImage }, __source: {
-              fileName: _jsxFileName,
-              lineNumber: 25
-            }
-          }),
-          _react2.default.createElement(
-            _reactNative.Text,
-            { key: i + 'author', style: _stylesheet2.default.author, __source: {
-                fileName: _jsxFileName,
-                lineNumber: 26
-              }
-            },
-            'Written by ',
-            article.author
-          )
-        );
-      });
-      return _react2.default.createElement(
-        _reactNative.View,
-        { style: { flex: 1 }, __source: {
-            fileName: _jsxFileName,
-            lineNumber: 30
-          }
-        },
-        _react2.default.createElement(
-          _reactNative.ScrollView,
-          { style: { flex: 1 }, __source: {
-              fileName: _jsxFileName,
-              lineNumber: 31
-            }
-          },
-          articles
-        )
-      );
-    }
-  }]);
-  return Feed;
+	babelHelpers.createClass(Feed, [{
+		key: 'setArticles',
+		value: function setArticles(url) {
+			console.log(url + "&sortBy=latest&apiKey=" + _apikey2.default);
+		}
+	}, {
+		key: 'render',
+		value: function render() {
+			var _this2 = this;
+
+			var articles = function articles() {
+				if (_this2.state.articles.length > 0) {
+					_this2.state.articles.map(function (article, i) {
+						return _react2.default.createElement(
+							_reactNative.View,
+							{ key: i + 'view', __source: {
+									fileName: _jsxFileName,
+									lineNumber: 26
+								}
+							},
+							_react2.default.createElement(
+								_reactNative.Text,
+								{ key: i + 'title', style: _stylesheet2.default.title, __source: {
+										fileName: _jsxFileName,
+										lineNumber: 27
+									}
+								},
+								article.title
+							),
+							_react2.default.createElement(_reactNative.Image, { key: i + 'image', style: _stylesheet2.default.articleImage, source: { uri: article.urlToImage }, __source: {
+									fileName: _jsxFileName,
+									lineNumber: 28
+								}
+							}),
+							_react2.default.createElement(
+								_reactNative.Text,
+								{ key: i + 'author', style: _stylesheet2.default.author, __source: {
+										fileName: _jsxFileName,
+										lineNumber: 29
+									}
+								},
+								'Written by ',
+								article.author
+							)
+						);
+					});
+				}
+			};
+			return _react2.default.createElement(
+				_reactNative.View,
+				{ style: { flex: 1 }, __source: {
+						fileName: _jsxFileName,
+						lineNumber: 35
+					}
+				},
+				_react2.default.createElement(
+					_reactNative.ScrollView,
+					{ style: { flex: 1 }, __source: {
+							fileName: _jsxFileName,
+							lineNumber: 36
+						}
+					},
+					articles
+				)
+			);
+		}
+	}]);
+	return Feed;
 }(_react.Component);
 
 exports.default = Feed;

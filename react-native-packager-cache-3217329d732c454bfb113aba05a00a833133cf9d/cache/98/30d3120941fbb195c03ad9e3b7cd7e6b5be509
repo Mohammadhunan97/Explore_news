@@ -64,34 +64,43 @@ var Header = function (_Component) {
         }
       };
       return _react2.default.createElement(
-        _reactNative.View,
-        { style: _stylesheet2.default.header, __source: {
+        _reactNative.ScrollView,
+        {
+          __source: {
             fileName: _jsxFileName,
             lineNumber: 31
           }
         },
         _react2.default.createElement(
-          _reactNative.TouchableHighlight,
-          {
-            onPress: function onPress() {
-              return _this2.adjustMenu();
-            },
-            style: { flex: 1 },
-            __source: {
+          _reactNative.View,
+          { style: _stylesheet2.default.header, __source: {
               fileName: _jsxFileName,
               lineNumber: 32
             }
           },
-          menu()
-        ),
-        _react2.default.createElement(
-          _reactNative.Text,
-          { style: _stylesheet2.default.logo, __source: {
-              fileName: _jsxFileName,
-              lineNumber: 38
-            }
-          },
-          'Explore News'
+          _react2.default.createElement(
+            _reactNative.TouchableHighlight,
+            {
+              onPress: function onPress() {
+                return _this2.adjustMenu();
+              },
+              style: { flex: 1 },
+              __source: {
+                fileName: _jsxFileName,
+                lineNumber: 33
+              }
+            },
+            menu()
+          ),
+          _react2.default.createElement(
+            _reactNative.Text,
+            { style: _stylesheet2.default.logo, __source: {
+                fileName: _jsxFileName,
+                lineNumber: 39
+              }
+            },
+            'Explore News'
+          )
         )
       );
     }
