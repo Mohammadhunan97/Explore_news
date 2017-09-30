@@ -1,0 +1,102 @@
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+var _jsxFileName = '/home/mohammad/exnews/app/components/header.js';
+
+var _react = require('react');
+
+var _react2 = babelHelpers.interopRequireDefault(_react);
+
+var _reactNative = require('react-native');
+
+var _stylesheet = require('../stylesheet');
+
+var _stylesheet2 = babelHelpers.interopRequireDefault(_stylesheet);
+
+var Header = function (_Component) {
+  babelHelpers.inherits(Header, _Component);
+
+  function Header(props) {
+    babelHelpers.classCallCheck(this, Header);
+
+    var _this = babelHelpers.possibleConstructorReturn(this, (Header.__proto__ || Object.getPrototypeOf(Header)).call(this, props));
+
+    _this.state = {
+      menuOverlay: false
+    };
+    return _this;
+  }
+
+  babelHelpers.createClass(Header, [{
+    key: 'componentDidMount',
+    value: function componentDidMount() {}
+  }, {
+    key: 'adjustMenu',
+    value: function adjustMenu() {
+      this.setState({ menuOverlay: !this.state.menuOverlay });
+      this.props.setMenuOverlay();
+    }
+  }, {
+    key: 'render',
+    value: function render() {
+      var _this2 = this;
+
+      var menu = function menu() {
+        if (_this2.state.menuOverlay === false) {
+          return _react2.default.createElement(_reactNative.Image, {
+            source: require('../assets/menu.png'),
+            style: _stylesheet2.default.menu,
+            __source: {
+              fileName: _jsxFileName,
+              lineNumber: 22
+            }
+          });
+        } else {
+          return _react2.default.createElement(
+            _reactNative.Text,
+            { style: { fontSize: 32, color: '#000', marginLeft: 10 }, __source: {
+                fileName: _jsxFileName,
+                lineNumber: 27
+              }
+            },
+            'X'
+          );
+        }
+      };
+      return _react2.default.createElement(
+        _reactNative.View,
+        { style: _stylesheet2.default.header, __source: {
+            fileName: _jsxFileName,
+            lineNumber: 31
+          }
+        },
+        _react2.default.createElement(
+          _reactNative.TouchableHighlight,
+          {
+            onPress: function onPress() {
+              return _this2.adjustMenu();
+            },
+            style: { flex: 1 },
+            __source: {
+              fileName: _jsxFileName,
+              lineNumber: 32
+            }
+          },
+          menu()
+        ),
+        _react2.default.createElement(
+          _reactNative.Text,
+          { style: _stylesheet2.default.logo, __source: {
+              fileName: _jsxFileName,
+              lineNumber: 38
+            }
+          },
+          'Explore News'
+        )
+      );
+    }
+  }]);
+  return Header;
+}(_react.Component);
+
+exports.default = Header;

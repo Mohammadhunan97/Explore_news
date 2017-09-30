@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Text,View, Image,TouchableHighlight } from 'react-native';
+import { Text,View, Image,TouchableHighlight,ScrollView } from 'react-native';
 import styles from '../stylesheet';
 
 export default class Header extends Component {
@@ -28,6 +28,7 @@ export default class Header extends Component {
       }
     }
     return (
+    <ScrollView>
       <View style={styles.header}>
         <TouchableHighlight 
         onPress={() => this.adjustMenu()}
@@ -37,6 +38,7 @@ export default class Header extends Component {
         </TouchableHighlight>
         <Text style={styles.logo}>Explore News</Text>
       </View>
+    </ScrollView>
     );
   }
 }

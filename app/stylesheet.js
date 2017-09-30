@@ -55,6 +55,22 @@ const styles = StyleSheet.create({
     fontSize: 32,
     margin: 5,
     marginTop:10
+  },
+  title: {
+    textAlign: 'center',
+    backgroundColor: '#FFF',
+    fontSize: 18,
+    marginTop:5,
+    marginBottom: 5,
+    color: '#000'
+  },
+  articleImage: {
+    width: 250,
+    height: 200,
+    marginLeft: 80
+  },
+  author: {
+    textAlign: 'center'
   }
 });
 

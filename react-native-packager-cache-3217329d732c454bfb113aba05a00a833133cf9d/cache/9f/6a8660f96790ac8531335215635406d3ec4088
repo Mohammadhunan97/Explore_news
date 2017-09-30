@@ -1,0 +1,142 @@
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+var _jsxFileName = '/home/mohammad/exnews/index.android.js';
+
+var _react = require('react');
+
+var _react2 = babelHelpers.interopRequireDefault(_react);
+
+var _reactNative = require('react-native');
+
+var _stylesheet = require('./app/stylesheet');
+
+var _stylesheet2 = babelHelpers.interopRequireDefault(_stylesheet);
+
+var _header = require('./app/components/header');
+
+var _header2 = babelHelpers.interopRequireDefault(_header);
+
+var _background = require('./app/components/background');
+
+var _background2 = babelHelpers.interopRequireDefault(_background);
+
+var _newssources = require('./app/components/newssources');
+
+var _newssources2 = babelHelpers.interopRequireDefault(_newssources);
+
+var _footer = require('./app/components/footer');
+
+var _footer2 = babelHelpers.interopRequireDefault(_footer);
+
+var _topics = require('./app/components/topics');
+
+var _topics2 = babelHelpers.interopRequireDefault(_topics);
+
+var exnews = function (_Component) {
+  babelHelpers.inherits(exnews, _Component);
+
+  function exnews(props) {
+    babelHelpers.classCallCheck(this, exnews);
+
+    var _this = babelHelpers.possibleConstructorReturn(this, (exnews.__proto__ || Object.getPrototypeOf(exnews)).call(this, props));
+
+    _this.state = {
+      menuOverlay: false
+    };
+    _this.setMenuOverlay = _this.setMenuOverlay.bind(_this);
+    return _this;
+  }
+
+  babelHelpers.createClass(exnews, [{
+    key: 'setMenuOverlay',
+    value: function setMenuOverlay() {
+      this.setState({ menuOverlay: !this.state.menuOverlay });
+      console.log(this.state.menuOverlay, "this.state.menuOverlay");
+    }
+  }, {
+    key: 'render',
+    value: function render() {
+      var _this2 = this;
+
+      menuVisible = function menuVisible() {
+        if (_this2.state.menuOverlay === false) {
+          return _react2.default.createElement(
+            _reactNative.View,
+            {
+              __source: {
+                fileName: _jsxFileName,
+                lineNumber: 34
+              }
+            },
+            _react2.default.createElement(_background2.default, {
+              __source: {
+                fileName: _jsxFileName,
+                lineNumber: 35
+              }
+            }),
+            _react2.default.createElement(
+              _reactNative.Text,
+              { style: _stylesheet2.default.mainText, __source: {
+                  fileName: _jsxFileName,
+                  lineNumber: 36
+                }
+              },
+              'Enjoy up to date news from sources like New York Times, Y Combinator, ESPN and more'
+            ),
+            _react2.default.createElement(_newssources2.default, {
+              __source: {
+                fileName: _jsxFileName,
+                lineNumber: 37
+              }
+            }),
+            _react2.default.createElement(_footer2.default, {
+              __source: {
+                fileName: _jsxFileName,
+                lineNumber: 38
+              }
+            })
+          );
+        } else {
+          return _react2.default.createElement(_topics2.default, {
+            __source: {
+              fileName: _jsxFileName,
+              lineNumber: 41
+            }
+          });
+        }
+      };
+      return _react2.default.createElement(
+        _reactNative.View,
+        { style: _stylesheet2.default.container, __source: {
+            fileName: _jsxFileName,
+            lineNumber: 45
+          }
+        },
+        _react2.default.createElement(
+          _reactNative.ScrollView,
+          {
+            __source: {
+              fileName: _jsxFileName,
+              lineNumber: 46
+            }
+          },
+          _react2.default.createElement(_header2.default, { setMenuOverlay: this.setMenuOverlay, __source: {
+              fileName: _jsxFileName,
+              lineNumber: 47
+            }
+          }),
+          menuVisible()
+        )
+      );
+    }
+  }]);
+  return exnews;
+}(_react.Component);
+
+exports.default = exnews;
+
+
+_reactNative.AppRegistry.registerComponent('exnews', function () {
+  return exnews;
+});

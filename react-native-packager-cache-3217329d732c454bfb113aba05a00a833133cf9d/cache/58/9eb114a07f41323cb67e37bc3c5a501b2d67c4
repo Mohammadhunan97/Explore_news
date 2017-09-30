@@ -1,0 +1,102 @@
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+var _jsxFileName = '/home/mohammad/exnews/app/components/feed.js';
+
+var _react = require('react');
+
+var _react2 = babelHelpers.interopRequireDefault(_react);
+
+var _reactNative = require('react-native');
+
+var _stylesheet = require('../stylesheet');
+
+var _stylesheet2 = babelHelpers.interopRequireDefault(_stylesheet);
+
+var _apikey = require('../../apikey');
+
+var _apikey2 = babelHelpers.interopRequireDefault(_apikey);
+
+var Feed = function (_Component) {
+  babelHelpers.inherits(Feed, _Component);
+
+  function Feed(props) {
+    babelHelpers.classCallCheck(this, Feed);
+
+    var _this = babelHelpers.possibleConstructorReturn(this, (Feed.__proto__ || Object.getPrototypeOf(Feed)).call(this, props));
+
+    _this.state = {
+      articles: []
+    };
+    if (_this.props.topic == "news") {
+      fetch("https://newsapi.org/v1/articles?source=the-new-york-times&sortBy=top&apiKey=" + _apikey2.default).then(function (res) {
+        res.json().then(function (data) {
+          var articles = data.articles;
+          _this.setState({ articles: articles });
+          console.log(articles);
+        });
+      });
+    }
+    return _this;
+  }
+
+  babelHelpers.createClass(Feed, [{
+    key: 'render',
+    value: function render() {
+      var articles = this.state.articles.map(function (article, i) {
+        return _react2.default.createElement(
+          _reactNative.View,
+          { key: i + 'view', __source: {
+              fileName: _jsxFileName,
+              lineNumber: 23
+            }
+          },
+          _react2.default.createElement(
+            _reactNative.Text,
+            { key: i + 'title', style: _stylesheet2.default.title, __source: {
+                fileName: _jsxFileName,
+                lineNumber: 24
+              }
+            },
+            article.title
+          ),
+          _react2.default.createElement(_reactNative.Image, { key: i + 'image', style: _stylesheet2.default.articleImage, source: { uri: article.urlToImage }, __source: {
+              fileName: _jsxFileName,
+              lineNumber: 25
+            }
+          }),
+          _react2.default.createElement(
+            _reactNative.Text,
+            { key: i + 'author', style: _stylesheet2.default.author, __source: {
+                fileName: _jsxFileName,
+                lineNumber: 26
+              }
+            },
+            'Written by ',
+            article.author
+          )
+        );
+      });
+      return _react2.default.createElement(
+        _reactNative.View,
+        { style: { flex: 1 }, __source: {
+            fileName: _jsxFileName,
+            lineNumber: 30
+          }
+        },
+        _react2.default.createElement(
+          _reactNative.ScrollView,
+          { style: { flex: 1 }, __source: {
+              fileName: _jsxFileName,
+              lineNumber: 31
+            }
+          },
+          articles
+        )
+      );
+    }
+  }]);
+  return Feed;
+}(_react.Component);
+
+exports.default = Feed;

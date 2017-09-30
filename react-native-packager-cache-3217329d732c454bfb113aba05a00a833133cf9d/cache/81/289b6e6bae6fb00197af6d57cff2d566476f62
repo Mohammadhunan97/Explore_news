@@ -1,0 +1,68 @@
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+var _jsxFileName = '/home/mohammad/exnews/app/components/footer.js';
+
+var _react = require('react');
+
+var _react2 = babelHelpers.interopRequireDefault(_react);
+
+var _reactNative = require('react-native');
+
+var _stylesheet = require('../stylesheet');
+
+var _stylesheet2 = babelHelpers.interopRequireDefault(_stylesheet);
+
+var Footer = function (_Component) {
+  babelHelpers.inherits(Footer, _Component);
+
+  function Footer() {
+    babelHelpers.classCallCheck(this, Footer);
+    return babelHelpers.possibleConstructorReturn(this, (Footer.__proto__ || Object.getPrototypeOf(Footer)).apply(this, arguments));
+  }
+
+  babelHelpers.createClass(Footer, [{
+    key: 'render',
+    value: function render() {
+      return _react2.default.createElement(
+        _reactNative.View,
+        { style: _stylesheet2.default.footer, __source: {
+            fileName: _jsxFileName,
+            lineNumber: 8
+          }
+        },
+        _react2.default.createElement(
+          _reactNative.Text,
+          {
+            style: { color: '#FFF', marginTop: 20 },
+            onPress: function onPress() {
+              return _reactNative.Linking.openURL('https://mohammadhunan.com/');
+            },
+            __source: {
+              fileName: _jsxFileName,
+              lineNumber: 9
+            }
+          },
+          'Developed by Mohammad Chughtai'
+        ),
+        _react2.default.createElement(
+          _reactNative.Text,
+          {
+            style: { color: '#FFF' },
+            onPress: function onPress() {
+              return _reactNative.Linking.openURL('https://newsapi.org/');
+            },
+            __source: {
+              fileName: _jsxFileName,
+              lineNumber: 13
+            }
+          },
+          'Powered by News API'
+        )
+      );
+    }
+  }]);
+  return Footer;
+}(_react.Component);
+
+exports.default = Footer;

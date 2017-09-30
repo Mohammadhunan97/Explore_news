@@ -1,0 +1,130 @@
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+var _jsxFileName = '/home/mohammad/exnews/app/components/topics.js';
+
+var _react = require('react');
+
+var _react2 = babelHelpers.interopRequireDefault(_react);
+
+var _reactNative = require('react-native');
+
+var _stylesheet = require('../stylesheet');
+
+var _stylesheet2 = babelHelpers.interopRequireDefault(_stylesheet);
+
+var _feed = require('./feed');
+
+var _feed2 = babelHelpers.interopRequireDefault(_feed);
+
+var Topics = function (_Component) {
+  babelHelpers.inherits(Topics, _Component);
+
+  function Topics(props) {
+    babelHelpers.classCallCheck(this, Topics);
+
+    var _this = babelHelpers.possibleConstructorReturn(this, (Topics.__proto__ || Object.getPrototypeOf(Topics)).call(this, props));
+
+    _this.state = {
+      topicActive: false,
+      topic: null
+    };
+    return _this;
+  }
+
+  babelHelpers.createClass(Topics, [{
+    key: 'setTopic',
+    value: function setTopic(topic) {
+      this.setState({ topicActive: true, topic: topic });
+    }
+  }, {
+    key: 'render',
+    value: function render() {
+      var _this2 = this;
+
+      topics = function topics() {
+        if (_this2.state.topicActive === false) {
+          return _react2.default.createElement(
+            _reactNative.View,
+            { style: { marginTop: 60 }, __source: {
+                fileName: _jsxFileName,
+                lineNumber: 22
+              }
+            },
+            _react2.default.createElement(
+              _reactNative.Text,
+              {
+                onPress: function onPress() {
+                  return _this2.setTopic('news');
+                },
+                style: _stylesheet2.default.topic, __source: {
+                  fileName: _jsxFileName,
+                  lineNumber: 23
+                }
+              },
+              'News'
+            ),
+            _react2.default.createElement(
+              _reactNative.Text,
+              {
+                style: _stylesheet2.default.topic, __source: {
+                  fileName: _jsxFileName,
+                  lineNumber: 26
+                }
+              },
+              'Tech'
+            ),
+            _react2.default.createElement(
+              _reactNative.Text,
+              {
+                style: _stylesheet2.default.topic, __source: {
+                  fileName: _jsxFileName,
+                  lineNumber: 28
+                }
+              },
+              'Sports'
+            ),
+            _react2.default.createElement(
+              _reactNative.Text,
+              {
+                style: _stylesheet2.default.topic, __source: {
+                  fileName: _jsxFileName,
+                  lineNumber: 30
+                }
+              },
+              'Entertainment'
+            ),
+            _react2.default.createElement(
+              _reactNative.Text,
+              {
+                style: _stylesheet2.default.topic, __source: {
+                  fileName: _jsxFileName,
+                  lineNumber: 32
+                }
+              },
+              'Finance'
+            )
+          );
+        } else {
+          return _react2.default.createElement(_feed2.default, { topic: _this2.state.topic, __source: {
+              fileName: _jsxFileName,
+              lineNumber: 36
+            }
+          });
+        }
+      };
+      return _react2.default.createElement(
+        _reactNative.View,
+        { style: _stylesheet2.default.topics, __source: {
+            fileName: _jsxFileName,
+            lineNumber: 40
+          }
+        },
+        topics()
+      );
+    }
+  }]);
+  return Topics;
+}(_react.Component);
+
+exports.default = Topics;

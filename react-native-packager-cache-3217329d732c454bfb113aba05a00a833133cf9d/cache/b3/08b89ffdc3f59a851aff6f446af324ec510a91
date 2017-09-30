@@ -1,0 +1,174 @@
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _react2 = require('react');
+
+var _react3 = _interopRequireDefault(_react2);
+
+var _index = require('./../../node_modules/react-transform-hmr/lib/index.js');
+
+var _index2 = _interopRequireDefault(_index);
+
+var _jsxFileName = '/home/mohammad/exnews/app/components/topics.js';
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _reactNative = require('react-native');
+
+var _stylesheet = require('../stylesheet');
+
+var _stylesheet2 = _interopRequireDefault(_stylesheet);
+
+var _feed = require('./feed');
+
+var _feed2 = _interopRequireDefault(_feed);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var _components = {
+  Topics: {
+    displayName: 'Topics'
+  }
+};
+
+var _node_modulesReactTransformHmrLibIndexJs2 = (0, _index2.default)({
+  filename: '/home/mohammad/exnews/app/components/topics.js',
+  components: _components,
+  locals: [module],
+  imports: [_react3.default]
+});
+
+function _wrapComponent(id) {
+  return function (Component) {
+    return _node_modulesReactTransformHmrLibIndexJs2(Component, id);
+  };
+}
+
+var Topics = _wrapComponent('Topics')(function (_Component) {
+  _inherits(Topics, _Component);
+
+  function Topics(props) {
+    _classCallCheck(this, Topics);
+
+    var _this = _possibleConstructorReturn(this, (Topics.__proto__ || Object.getPrototypeOf(Topics)).call(this, props));
+
+    _this.state = {
+      topicActive: false,
+      topic: null
+    };
+    return _this;
+  }
+
+  _createClass(Topics, [{
+    key: 'setTopic',
+    value: function setTopic(topic) {
+      this.setState({ topicActive: true, topic: topic });
+    }
+  }, {
+    key: 'render',
+    value: function render() {
+      var _this2 = this;
+
+      topics = function topics() {
+        if (_this2.state.topicActive === false) {
+          return _react3.default.createElement(
+            _reactNative.View,
+            { style: { marginTop: 60 }, __source: {
+                fileName: _jsxFileName,
+                lineNumber: 22
+              }
+            },
+            _react3.default.createElement(
+              _reactNative.Text,
+              {
+                onPress: function onPress() {
+                  return _this2.setTopic('news');
+                },
+                style: _stylesheet2.default.topic, __source: {
+                  fileName: _jsxFileName,
+                  lineNumber: 23
+                }
+              },
+              'News'
+            ),
+            _react3.default.createElement(
+              _reactNative.Text,
+              {
+                style: _stylesheet2.default.topic, __source: {
+                  fileName: _jsxFileName,
+                  lineNumber: 26
+                }
+              },
+              'Tech'
+            ),
+            _react3.default.createElement(
+              _reactNative.Text,
+              {
+                style: _stylesheet2.default.topic, __source: {
+                  fileName: _jsxFileName,
+                  lineNumber: 28
+                }
+              },
+              'Sports'
+            ),
+            _react3.default.createElement(
+              _reactNative.Text,
+              {
+                style: _stylesheet2.default.topic, __source: {
+                  fileName: _jsxFileName,
+                  lineNumber: 30
+                }
+              },
+              'Entertainment'
+            ),
+            _react3.default.createElement(
+              _reactNative.Text,
+              {
+                style: _stylesheet2.default.topic, __source: {
+                  fileName: _jsxFileName,
+                  lineNumber: 32
+                }
+              },
+              'Finance'
+            )
+          );
+        } else {
+          return _react3.default.createElement(_feed2.default, { topic: _this2.state.topic, __source: {
+              fileName: _jsxFileName,
+              lineNumber: 36
+            }
+          });
+        }
+      };
+      return _react3.default.createElement(
+        _reactNative.ScrollView,
+        {
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 40
+          }
+        },
+        _react3.default.createElement(
+          _reactNative.View,
+          { style: _stylesheet2.default.topics, __source: {
+              fileName: _jsxFileName,
+              lineNumber: 41
+            }
+          },
+          topics()
+        )
+      );
+    }
+  }]);
+
+  return Topics;
+}(_react2.Component));
+
+exports.default = Topics;
